@@ -1,64 +1,16 @@
-import Head from 'next/head'
-import { GetServerSideProps } from 'next';
+import styles from '../styles/pages/LandingPage.module.css';
 
-import { CompletedChallenges } from '../components/CompletedChallenges';
-import { Countdown } from '../components/Countdown';
-import { ExperienceBar } from '../components/ExperienceBar';
-import { Profile } from '../components/Profile';
-import { ChallengeBox } from '../components/ChallengeBox';
-
-import styles from '../styles/pages/Home.module.css';
-import { CountdownProvider } from '../contexts/CountdownContext';
-import { ChallengesProvider } from '../contexts/ChallengesContext';
-
-
-interface HomeProps {
-  level: number,
-  currentExperience: number,
-  challengesCompleted: number
-}
-
-export default function Home(props: HomeProps) {
-  console.log(props);
-
+function LandingPage() {
   return (
-    <ChallengesProvider
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
-    >
-      <div className={styles.container}>
-        <Head>
-          <title>Início | move.it</title>
-        </Head>
-
-        <ExperienceBar></ExperienceBar>
-
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile></Profile>
-              <CompletedChallenges></CompletedChallenges>
-              <Countdown></Countdown>
-            </div>
-            <div>
-              <ChallengeBox />
-            </div>
-          </section>
-        </CountdownProvider>
-      </div>
-    </ChallengesProvider>
+    <div className={styles.container}>
+      <figure></figure>
+      <main>
+        <img src="/icons/logo.svg" alt="" />
+        <h1>Welcome</h1>
+        <p>Reach the next level of focus, production and health</p>
+      </main>
+    </div>
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { level, currentExperience, challengesCompleted } = context.req.cookies;
-
-  return {
-    props: {
-      level: Number(level),
-      currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted)
-    }
-  }
-}
+export default LandingPage
