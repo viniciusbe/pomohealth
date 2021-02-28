@@ -5,12 +5,13 @@
 }
 
 :root {
-    --white: #fff;
-    --background: #666666;
-    --gray-line: #dcdde0;
-    --text: #F2f3f5;
+    --white: #4f3b78;
+    --background: #363b4e;
+    --gray-line: #927fbf;
+    --icons: #927fbf;
+    --text: #c4bbf0;
     --text-highlight: #b3b9ff;
-    --title: #2e384d;
+    --title: #fff;
     --red: #e83f5b;
     --green: #4cd62b;
     --blue: #5965e0;

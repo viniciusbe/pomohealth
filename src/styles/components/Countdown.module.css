@@ -3,7 +3,7 @@
     align-items: center;
     font-family: Rajdhani;
     font-weight: 600;
-    color: var(--title);
+    color: var(--text);
 }
 
 .countdownContainer>div {
@@ -26,9 +26,9 @@
     border-right: 1px solid #f0f1f3;
 }
 
-.countdownContainer>div span:first-child {
+/* .countdownContainer>div span:first-child {
     border-left: 1px solid #f0f1f3;
-}
+} */
 
 .countdownContainer>span {
     font-size: 6.25rem;
