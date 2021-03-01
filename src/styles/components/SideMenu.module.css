@@ -1,16 +1,29 @@
 .container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     border-right: 1px solid var(--gray-line);
     background-color: #4f3b78;
 }
 
+.container img {
+    margin-top: 1.5rem;
+    height: 3rem;
+}
+
 .container div {
-    margin: auto;
     display: flex;
     flex-direction: column;
 }
 
 .container a+a {
     margin-top: 2.5rem;
+}
+
+.container button {
+    background-color: transparent;
+    border: none;
+    font-size: 0;
+    margin-bottom: 1.5rem;
 }
