@@ -2,7 +2,6 @@ import { signIn, useSession } from 'next-auth/client'
 import { useRouter } from 'next/router';
 
 import styles from '../styles/pages/SignIn.module.css';
-import Home from '.';
 
 function SignIn() {
     const [session, loading] = useSession()

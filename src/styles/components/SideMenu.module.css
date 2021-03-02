@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     border-right: 1px solid var(--gray-line);
     background-color: #4f3b78;
 }
@@ -15,10 +15,18 @@
 .container div {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.container a+a {
-    margin-top: 2.5rem;
+.container div>div {
+    width: 100%;
+    height: 3.5rem;
+    margin: auto;
+}
+
+.container div+div {
+    margin-top: 1rem;
 }
 
 .container button {
@@ -26,4 +34,10 @@
     border: none;
     font-size: 0;
     margin-bottom: 1.5rem;
+}
+
+.borderLeft {
+    border-left: 4px solid var(--white);
+    border-top: 3px solid var(--purple);
+    border-bottom: 3px solid var(--purple);
 }

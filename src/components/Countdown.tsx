@@ -1,6 +1,8 @@
 import { useContext } from 'react'
 import { CountdownContext } from '../contexts/CountdownContext';
 import styles from '../styles/components/Countdown.module.css'
+import { FaPlay, FaTimes, FaCheckCircle } from 'react-icons/fa';
+
 
 
 export function Countdown() {
@@ -9,9 +11,12 @@ export function Countdown() {
         hasFinished,
         isActive,
         resetCountdown,
-        startCountdown } = useContext(CountdownContext)
+        startCountdown,
+        time,
+        totalTime } = useContext(CountdownContext)
 
-
+    const percertCurrentTime = Math.round((time * 100) / totalTime);
+    console.log(time, totalTime);
     const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
     const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
 
@@ -36,6 +41,8 @@ export function Countdown() {
                     className={styles.countdownButton}
                 >
                     Ciclo encerrado
+                    <FaCheckCircle size="1.1rem" className={styles.reactIcons}></FaCheckCircle>
+                    <div className={styles.loadedBar}></div>
                 </button>
             ) : (
                     <>
@@ -46,6 +53,8 @@ export function Countdown() {
                                 onClick={resetCountdown}
                             >
                                 Abandonar ciclo
+                                <FaTimes size="1.1rem" className={styles.reactIcons}></FaTimes>
+                                <div className={styles.loadingBar}></div>
                             </button>
                         ) : (
                                 <button
@@ -54,6 +63,7 @@ export function Countdown() {
                                     onClick={startCountdown}
                                 >
                                     Iniciar um ciclo
+                                    <FaPlay size="0.8rem" className={styles.reactIcons}></FaPlay>
                                 </button>
                             )}
                     </>

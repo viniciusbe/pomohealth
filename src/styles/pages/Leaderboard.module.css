@@ -12,26 +12,51 @@
     width: 100%;
     margin: 0 auto;
     padding: 2.5rem 2rem;
-    border: 1px solid gray;
+}
+
+.leaderboardContainer h1 {
+    color: var(--white);
 }
 
 .leaderboard {
     width: 100%;
 }
 
-.leaderboard tr {
+.leaderboard thead tr {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.leaderboard thead th:nth-child(2) {
+    margin-right: auto;
+    margin-left: 2.25rem;
+}
+
+.leaderboard thead th:last-child {
+    margin-right: 8.5rem;
+    margin-left: 6.5rem;
+}
+
+.leaderboard tbody tr {
     display: flex;
     flex: 1;
     align-items: center;
     background-color: var(--purple);
     height: 6rem;
-    margin-top: 0.5rem;
     border-radius: 5px;
     padding-right: 3.5rem;
 }
 
+.leaderboard tbody tr+tr {
+    margin-top: 0.5rem;
+}
+
 .leaderboard td:first-child {
-    border-right: 2px solid var(--background);
+    border-right: 3px solid var(--background);
     max-width: 4.5rem;
     width: 100%;
     height: 100%;
@@ -46,6 +71,10 @@
     margin-left: 1.5rem;
     display: flex;
     align-items: center;
+}
+
+.leaderboard td:nth-child(2) strong {
+    color: var(--white);
 }
 
 .leaderboard td:nth-child(2) img {
@@ -68,4 +97,15 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+}
+
+.leaderboard td:nth-child(3) {
+    max-width: 8.5rem;
+    width: 100%;
+}
+
+.leaderboard td:last-child {
+    max-width: 6rem;
+    width: 100%;
+    margin-left: 3.5rem;
 }

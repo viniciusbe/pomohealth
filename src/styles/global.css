@@ -17,6 +17,7 @@
     --blue: #407BFF;
     --blue-dark: #2D56B3;
     --blue-twitter: #2aa9e0;
+    --total-time: 6s;
 }
 
 @media(max-width:1080px) {

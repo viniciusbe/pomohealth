@@ -44,7 +44,6 @@ export function ChallengesProvider({ children }: challengesProviderProps) {
 
     const canUpdate = useRef(false)
 
-
     const experienceToNextLevel = Math.pow((level + 1) * 4, 2)
 
     useEffect(() => {
@@ -52,10 +51,12 @@ export function ChallengesProvider({ children }: challengesProviderProps) {
     }, [])
 
     useEffect(() => {
-        if (!loading) {
+        if (!loading && session) {
             axios.get('/api/user', {
                 params: {
-                    email: session.user.email
+                    name: session.user.name,
+                    email: session.user.email,
+                    image: session.user.image
                 }
             }).then(response => {
                 setLevel(response.data.level)
@@ -72,16 +73,16 @@ export function ChallengesProvider({ children }: challengesProviderProps) {
         }
 
         async function saveStats() {
-            console.log(level);
             await axios.post('/api/user', {
+                name: session.user.name,
                 email: session.user.email,
+                image: session.user.image,
                 level,
                 currentExperience,
                 challengesCompleted
             })
         }
         saveStats()
-        console.log("Effect was run");
     }, [level, currentExperience, challengesCompleted]);
 
     function levelUp() {

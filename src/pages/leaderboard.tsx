@@ -1,17 +1,33 @@
+import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/client';
-import { useContext } from 'react';
+import Head from 'next/head'
+import axios from 'axios';
 
 import { SideMenu } from '../components/SideMenu';
-import { ChallengesContext, ChallengesProvider } from '../contexts/ChallengesContext';
 import styles from '../styles/pages/Leaderboard.module.css';
+
+interface User {
+    name: string;
+    email: string;
+    image: string;
+    level: number;
+    currentExperience: number;
+    challengesCompleted: number;
+}
 
 export default function Leaderboard() {
 
-    const [session, loading] = useSession()
+    const [_, loading] = useSession()
+    const [users, setUsers] = useState([])
 
-    const { level, challengesCompleted, currentExperience } = useContext(ChallengesContext)
+    useEffect(() => {
+        axios.get('/api/users').then(response => {
+            console.log(response.data);
+            setUsers(response.data)
+        }
+        )
+    }, [])
 
-    console.log(level);
     if (loading) {
         return (
             <h1>LOADING</h1>
@@ -20,7 +36,10 @@ export default function Leaderboard() {
 
     return (
         <div className={styles.container}>
-            <SideMenu></SideMenu>
+            <Head>
+                <title>Leaderboard | pomohealth</title>
+            </Head>
+            <SideMenu currentPage="leaderboard"></SideMenu>
             <div className={styles.leaderboardContainer}>
                 <h1>Leaderboard</h1>
                 <table className={styles.leaderboard}>
@@ -33,30 +52,26 @@ export default function Leaderboard() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr >
-                            <td>1</td>
-                            <td>
-                                <img
-                                    src={session.user.image}
-                                    alt={session.user.name}
-                                />
-                                <div>
-                                    <strong>{session.user.name}</strong>
+                        {users.map((user, index) => (
+                            <tr key={user.email}>
+                                <td>{index + 1}</td>
+                                <td>
+                                    <img
+                                        src={user.image}
+                                        alt={user.name}
+                                    />
                                     <div>
-                                        <img src="/icons/level.svg" alt="level up arrow" />
-                                        <p>Level {level}</p>
+                                        <strong>{user.name}</strong>
+                                        <div>
+                                            <img src="/icons/level.svg" alt="level up arrow" />
+                                            <p>Level {user.level}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td>{challengesCompleted} completed</td>
-                            <td>{currentExperience} xp</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>CHALLENGES</td>
-                            <td>XP</td>
-                            <td>POSITION</td>
-                        </tr>
+                                </td>
+                                <td>{user.challengesCompleted} completed</td>
+                                <td>{user.currentExperience} xp</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>

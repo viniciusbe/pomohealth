@@ -38,13 +38,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 0;
+    border: none;
     border-radius: 5px;
     background: var(--blue);
     color: var(--title);
     font-size: 1.25rem;
     font-weight: 600;
     transition: background-color 0.2s;
+    position: relative;
+}
+
+.reactIcons {
+    vertical-align: middle;
+    margin-left: 1rem;
 }
 
 .countdownButton:not(:disabled):hover {
@@ -54,6 +60,34 @@
 .countdownButtonActive {
     background: var(--purple);
     color: var(--title);
+}
+
+.loadingBar {
+    height: 4px;
+    background-color: var(--green);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 0 5px 5px;
+    animation: load var(--total-time) linear;
+}
+
+@keyframes load {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.loadedBar {
+    height: 4px;
+    background-color: var(--green);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0 0 5px 5px;
 }
 
 .countdownButtonActive:not(:disabled):hover {

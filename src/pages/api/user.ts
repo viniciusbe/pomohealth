@@ -1,5 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { useSession } from 'next-auth/client';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { connectToDatabase } from '../../util/mongodb';
 
 export default async function (request: NextApiRequest, response: NextApiResponse) {
@@ -8,7 +7,7 @@ export default async function (request: NextApiRequest, response: NextApiRespons
     const collection = database.collection('stats')
 
     if (request.method === 'POST') {
-        const { email, level, currentExperience, challengesCompleted } = request.body;
+        const { name, email, image, level, currentExperience, challengesCompleted } = request.body;
 
         const userUpdated = await collection.findOneAndUpdate(
             {
@@ -17,6 +16,8 @@ export default async function (request: NextApiRequest, response: NextApiRespons
             {
                 $set:
                 {
+                    name,
+                    image,
                     level,
                     currentExperience,
                     challengesCompleted
@@ -25,22 +26,23 @@ export default async function (request: NextApiRequest, response: NextApiRespons
 
         return response.status(200).json(userUpdated)
     } else {
-        const { email } = request.query
-        console.log(email);
+        const { name, email, image } = request.query;
+
         let userStats = await collection.findOne({
             email
         })
 
         if (!userStats) {
             userStats = await collection.insertOne({
+                name,
                 email,
-                level: 0,
+                image,
+                level: 1,
                 currentExperience: 0,
                 challengesCompleted: 0
             })
         }
 
-        console.log(userStats);
 
         return response.status(200).json(userStats)
     }

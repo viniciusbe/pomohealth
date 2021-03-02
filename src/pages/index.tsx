@@ -32,11 +32,11 @@ function Home(props: HomeProps) {
 
   return (
     <div className={styles.container}>
-      <SideMenu ></SideMenu>
+      <Head>
+        <title>Início | pomohealth</title>
+      </Head>
+      <SideMenu currentPage="home"></SideMenu>
       <div className={styles.contentContainer}>
-        <Head>
-          <title>Início | pomohealth</title>
-        </Head>
 
         <ExperienceBar></ExperienceBar>
 
