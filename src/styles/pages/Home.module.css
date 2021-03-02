@@ -1,10 +1,10 @@
 .container {
+    height: 100vh;
     display: grid;
     grid-template-columns: 112px 1fr;
 }
 
 .contentContainer {
-    height: 100vh;
     max-width: 992px;
     margin: 0 auto;
     padding: 2.5rem 2rem;

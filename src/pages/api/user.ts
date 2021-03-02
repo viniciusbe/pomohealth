@@ -15,9 +15,12 @@ export default async function (request: NextApiRequest, response: NextApiRespons
                 email
             },
             {
-                level,
-                currentExperience,
-                challengesCompleted
+                $set:
+                {
+                    level,
+                    currentExperience,
+                    challengesCompleted
+                }
             })
 
         return response.status(200).json(userUpdated)
@@ -36,6 +39,8 @@ export default async function (request: NextApiRequest, response: NextApiRespons
                 challengesCompleted: 0
             })
         }
+
+        console.log(userStats);
 
         return response.status(200).json(userStats)
     }

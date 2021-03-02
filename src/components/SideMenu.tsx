@@ -1,10 +1,13 @@
 import { signOut } from 'next-auth/client';
 import Link from 'next/link'
+import { useState } from 'react';
 import { FaHome, FaMedal, FaSignOutAlt } from 'react-icons/fa';
 
 import styles from '../styles/components/SideMenu.module.css';
 
 export function SideMenu() {
+
+    const [displayLeaderboard, setDisplayLeaderboard] = useState(false)
 
     function handleSignOut() {
         signOut({ callbackUrl: 'http://localhost:3000/signin' });
@@ -24,7 +27,6 @@ export function SideMenu() {
             <button onClick={handleSignOut}>
                 <FaSignOutAlt size="2rem" color="#fff"></FaSignOutAlt>
             </button>
-
         </nav >
     )
 }

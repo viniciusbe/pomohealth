@@ -15,7 +15,6 @@ function SignIn() {
 
     if (!loading && session) {
         router.push('/')
-
     }
 
     return (

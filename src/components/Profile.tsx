@@ -6,14 +6,14 @@ import styles from '../styles/components/Profile.module.css'
 export function Profile() {
     const { level } = useContext(ChallengesContext)
 
-    const [session] = useSession()
+    const [session, loading] = useSession()
 
     return (
         <div className={styles.profileContainer}>
-            <img src={session.user.image} alt={session.user.name} />
+            <img src={!loading ? session.user.image : undefined} alt={!loading ? session.user.name : undefined} />
             <div>
                 <strong>
-                    {session.user.name}
+                    {!loading && session.user.name}
                 </strong>
 
                 <p>
