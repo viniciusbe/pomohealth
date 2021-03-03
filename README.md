@@ -78,7 +78,7 @@ Run the application:
 yarn dev
 ```
 
-Create an OAuth App on [Github](https://github.com/settings/developers) for the authentication and then set GITHUB variables on .env.local. Also set your mongodb variables.
+Create an OAuth App [here](https://github.com/settings/developers) for the authentication and then set GITHUB variables on .env.local. Also set your mongodb variables.
 
 The application should run on http://localhost:3000/.
 
