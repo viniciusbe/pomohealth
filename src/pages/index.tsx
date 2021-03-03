@@ -1,7 +1,5 @@
 import Head from 'next/head'
-import { GetServerSideProps } from 'next';
-import { getSession, useSession } from 'next-auth/client';
-import axios from 'axios';
+import { useSession } from 'next-auth/client';
 
 import { CompletedChallenges } from '../components/CompletedChallenges';
 import { Countdown } from '../components/Countdown';
@@ -11,10 +9,8 @@ import { ChallengeBox } from '../components/ChallengeBox';
 
 import styles from '../styles/pages/Home.module.css';
 import { CountdownProvider } from '../contexts/CountdownContext';
-import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { SideMenu } from '../components/SideMenu';
 import SignIn from './signin';
-import { useEffect, useState } from 'react';
 
 
 interface HomeProps {
@@ -33,7 +29,7 @@ function Home(props: HomeProps) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Início | pomohealth</title>
+        <title>Home | pomohealth</title>
       </Head>
       <SideMenu currentPage="home"></SideMenu>
       <div className={styles.contentContainer}>

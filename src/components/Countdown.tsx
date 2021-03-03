@@ -15,8 +15,6 @@ export function Countdown() {
         time,
         totalTime } = useContext(CountdownContext)
 
-    const percertCurrentTime = Math.round((time * 100) / totalTime);
-    console.log(time, totalTime);
     const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
     const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
 
@@ -40,7 +38,7 @@ export function Countdown() {
                     type="button"
                     className={styles.countdownButton}
                 >
-                    Ciclo encerrado
+                    Cycle finished
                     <FaCheckCircle size="1.1rem" className={styles.reactIcons}></FaCheckCircle>
                     <div className={styles.loadedBar}></div>
                 </button>
@@ -52,7 +50,7 @@ export function Countdown() {
                                 className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
                                 onClick={resetCountdown}
                             >
-                                Abandonar ciclo
+                                Quit cycle
                                 <FaTimes size="1.1rem" className={styles.reactIcons}></FaTimes>
                                 <div className={styles.loadingBar}></div>
                             </button>
@@ -62,7 +60,7 @@ export function Countdown() {
                                     className={styles.countdownButton}
                                     onClick={startCountdown}
                                 >
-                                    Iniciar um ciclo
+                                    Start a cycle
                                     <FaPlay size="0.8rem" className={styles.reactIcons}></FaPlay>
                                 </button>
                             )}

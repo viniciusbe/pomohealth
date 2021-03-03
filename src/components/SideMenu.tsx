@@ -12,7 +12,7 @@ export function SideMenu({ currentPage }: SideMenuProps) {
 
 
     function handleSignOut() {
-        signOut({ callbackUrl: 'http://localhost:3000/signin' });
+        signOut({ callbackUrl: `${process.env.NEXTAUTH_URL}/signin` });
     }
 
     return (

@@ -9,7 +9,7 @@ function SignIn() {
     const router = useRouter()
 
     function handleGithubSignin() {
-        signIn('github', { callbackUrl: 'http://localhost:3000' })
+        signIn('github', { callbackUrl: process.env.NEXTAUTH_URL })
     }
 
     if (!loading && session) {

@@ -22,7 +22,6 @@ export default function Leaderboard() {
 
     useEffect(() => {
         axios.get('/api/users').then(response => {
-            console.log(response.data);
             setUsers(response.data)
         }
         )
