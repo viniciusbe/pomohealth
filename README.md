@@ -9,6 +9,7 @@
 
 [![GitHub license](https://img.shields.io/github/license/viniciusbe/GoRestaurant-app?color=%234F3B78)](https://github.com/viniciusbe/GoRestaurant-app/blob/master/LICENSE) 
 [![Badge](https://img.shields.io/badge/made%20by-Vin%C3%ADcius%20Bernardes-%234F3B78)](https://github.com/viniciusbe) 
+![GitHub top language](https://img.shields.io/github/languages/top/viniciusbe/pomohealth)
  
  
 ### [See the application here](https://pomohealth.vercel.app/) 
@@ -32,7 +33,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This project was based on project created by [RocketSeat's](https://rocketseat.com.br/) during the event NLW#04
+This project was based on a project created by [RocketSeat's](https://rocketseat.com.br/) during the event NLW#04
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
