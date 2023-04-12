@@ -12,7 +12,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/viniciusbe/pomohealth)
  
  
-### [See the application here](https://pomohealth.vercel.app/) 
+### [See the application here](https://pomohealth.viniciusbernardes.dev/) 
 
 ## ▶ Preview
 
